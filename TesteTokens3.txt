@@ -1,0 +1,14 @@
+program 
+calc 
+; 
+procedure 
+calc ( calc : integer )
+declaravariaveis 
+calc 
+: 
+integer
+;
+begin
+
+end
+.

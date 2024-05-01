@@ -1,0 +1,161 @@
+GRAMÁTICA 
+0 <PROGRAMA> ::= "program" "identificador" ";" <BLOCO> "."
+1 <BLOCO> ::= <DCLPROC> <DCLCONST> <DCLVAR> <CORPO>
+2 <DCLCONST> ::= "const" "identificador" "=" <TIPO> ";" <LDCONST>
+3 <DCLCONST> ::= î
+4 <LDCONST> ::= "identificador" "=" <TIPO> ";" <LDCONST>
+5 <LDCONST> ::= î
+6 <DCLVAR> ::= "declaravariaveis" <LID> ":" <TIPO> ";" <LDVAR>
+7 <DCLVAR> ::= î
+8 <LID> ::= "identificador" <REPIDENT>
+9 <REPIDENT> ::= "," "identificador" <REPIDENT>
+10 <REPIDENT> ::= î
+11 <LDVAR> ::= <LID> ":" <TIPO> ";" <LDVAR>
+12 <LDVAR> ::= î
+13 <TIPO> ::= "array" "[" "numinteiro" ".." "numinteiro" "]" "of" <TIPOARRAY>
+14 <TIPOARRAY> ::= "integer"
+15 <TIPOARRAY> ::= "char"
+16 <TIPOARRAY> ::= "string"
+17 <TIPOARRAY> ::= "real"
+18 <TIPO> ::= "integer"
+19 <TIPO> ::= "char"
+20 <TIPO> ::= "string"
+21 <TIPO> ::= "real"
+22 <DCLPROC> ::= "procedure" "identificador" <DEFPAR> <DCLVAR> <CORPO> ";" <DCLPROC>
+23 <DCLPROC> ::= î
+24 <DEFPAR> ::= "(" <LID> ":" <TIPO> ";" <LDVAR> ")"
+25 <DEFPAR> ::= î
+26 <CORPO> ::= "begin" <COMANDO> ";" <REPCOMANDO> "end"
+27 <REPCOMANDO> ::= <COMANDO> ";" <REPCOMANDO>
+28 <REPCOMANDO> ::= î
+29 <COMANDO> ::= "if" "[" <EXPRESSAO> "]" "then" "begin" <COMANDO> "end" <ELSEPARTE>
+30 <COMANDO> ::= "while" "[" <EXPRESSAO> "]" "do" "begin" <COMANDO> "end"
+31 <COMANDO> ::= "repeat" <COMANDO> "until" "[" <EXPRESSAO> "]"
+32 <COMANDO> ::= "read" "(" <VARIAVEL> ")"
+33 <COMANDO> ::= "chamaprocedure" "identificador" <PARAMETROS>
+34 <COMANDO> ::= "write" "(" <ITEMSAIDA> <REPITEM> ")"
+35 <COMANDO> ::= "for" "[" "identificador" "=" <EXPRESSAO> "]" "to" "[" <EXPRESSAO> "]"
+"do" "begin" <COMANDO> "end"
+36 <COMANDO> ::= î
+37 <PARAMETROS> ::= "(" <LID> ")"
+38 <PARAMETROS> ::= î
+39 <ITEMSAIDA> ::= "literal"
+40 <ITEMSAIDA> ::= <EXPRESSAO>
+41 <REPITEM> ::= "," <ITEMSAIDA> <REPITEM>
+42 <REPITEM> ::= î
+43 <EXPRESSAO> ::= <TERMO> <REPEXP> <REPEXPSIMP>
+44 <TERMO> ::= <FATOR> <REPTERMO>
+45 <FATOR> ::= "numinteiro"
+46 <FATOR> ::= "identificador"
+47 <FATOR> ::= "nomestring"
+48 <FATOR> ::= "nomechar"
+49 <FATOR> ::= "numreal"
+50 <FATOR> ::= "(" <EXPRESSAO> ")"
+51 <REPEXPSIMP> ::= "=" <EXPSIMP>
+52 <REPEXPSIMP> ::= "<" <EXPSIMP>
+53 <REPEXPSIMP> ::= ">" <EXPSIMP>
+54 <REPEXPSIMP> ::= ">=" <EXPSIMP>
+55 <REPEXPSIMP> ::= "<=" <EXPSIMP>
+56 <REPEXPSIMP> ::= "<>" <EXPSIMP>
+57 <REPEXPSIMP> ::= î
+58 <EXPSIMP> ::= "+" <TERMO> <REPEXP>
+59 <EXPSIMP> ::= "-" <TERMO> <REPEXP>
+60 <EXPSIMP> ::= <TERMO> <REPEXP>
+61 <REPEXP> ::= "+" <TERMO> <REPEXP>
+62 <REPEXP> ::= "-" <TERMO> <REPEXP>
+63 <REPEXP> ::= "or" <TERMO> <REPEXP>
+64 <REPEXP> ::= î
+65 <REPTERMO> ::= "*" <FATOR> <REPTERMO>
+66 <REPTERMO> ::= "/" <FATOR> <REPTERMO>
+67 <REPTERMO> ::= "and" <FATOR> <REPTERMO>
+68 <REPTERMO> ::= î
+69 <ELSEPARTE> ::= "else" "begin" <COMANDO> "end"
+70 <ELSEPARTE> ::= î
+71 <VARIAVEL> ::= "identificador" <REPVARIAVEL>
+72 <REPVARIAVEL> ::= "," "identificador" <REPVARIAVEL>
+73 <REPVARIAVEL> ::= î
+TERMINAIS
+Cód Token
+0 write
+1 while
+2 until
+3 to
+4 then
+5 string
+6 repeat
+7 real
+8 read
+9 program
+10 procedure
+11 or
+12 of
+13 literal
+14 integer
+15 if
+16 identificador
+17 î
+18 for
+19 end
+20 else
+21 do
+22 declaravariaveis
+23 const
+24 char
+25 chamaprocedure
+26 begin
+27 array
+28 and
+29 >=
+30 >
+31 =
+32 <>
+33 <=
+34 <
+35 +
+36 numreal
+37 numinteiro
+38 nomestring
+39 nomechar
+40 ]
+41 [
+42 ;
+43 :
+44 /
+45 ..
+46 .
+47 ,
+48 *
+49 )
+50 (
+51 $
+52 -
+NÃO TERMINAIS
+Cód Token
+53 <PROGRAMA>
+54 <BLOCO>
+55 <DCLPROC>
+56 <DCLCONST>
+57 <DCLVAR>
+58 <CORPO>
+59 <TIPO>
+60 <LDCONST>
+61 <LID>
+62 <LDVAR>
+63 <REPIDENT>
+64 <TIPOARRAY>
+65 <DEFPAR>
+66 <COMANDO>
+67 <REPCOMANDO>
+68 <EXPRESSAO>
+69 <ELSEPARTE>
+70 <VARIAVEL>
+71 <REPVARIAVEL>
+72 <PARAMETROS>
+73 <ITEMSAIDA>
+74 <REPITEM>
+75 <TERMO>
+76 <REPEXP>
+77 <REPEXPSIMP>
+78 <FATOR>
+79 <REPTERMO>
+80 <EXPSIMP>

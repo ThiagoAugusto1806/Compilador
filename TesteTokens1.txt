@@ -1,0 +1,3 @@
+program Calculadora ; 
+declaravariaveis
+Num , while : program

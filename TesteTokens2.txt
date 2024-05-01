@@ -1,0 +1,5 @@
+write until QualquerPalavra ( integer <> begin )
+then string [ 200 ]
+for ( 800 >= 8 )
+end else : real read
+program procedure
