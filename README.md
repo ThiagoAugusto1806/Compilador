@@ -1,2 +1,3 @@
-# Analizador Lexico
- Analizador Léxico para a matéria de compiladores 
+# Compilador 
+
+Projeto da matéria de compiladores contendo analizador lexico e analizador sintatico
